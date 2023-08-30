@@ -1,0 +1,49 @@
+.wrapper {
+  cursor: pointer;
+
+  &__container {
+    width: 138px;
+    height: 198px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+  }
+
+  h2 {
+    background: white;
+    margin-top: 10px;
+    padding: 10px 0px;
+    font-size: 12px;
+    text-align: center;
+    color: #FF868E;
+    border-radius: 10px;
+    letter-spacing: 2px;
+  }
+
+}
+
+.wrapper:hover {
+
+  &__container {
+    background: black;
+  }
+
+  h2 {
+    background: #FBE0DC;
+  }
+}
+
+.active {
+
+  &__container {
+    box-shadow: 0px 0px 0px 4px #FBE0DC;
+  }
+
+  h2 {
+    color: white;
+    background: #FF868E;
+  }
+}

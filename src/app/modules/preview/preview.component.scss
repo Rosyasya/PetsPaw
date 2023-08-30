@@ -1,0 +1,23 @@
+.girl__container {
+  position: relative;
+  height: 100vh;
+  overflow-y: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &-background {
+    position: absolute;
+    width: 90%;
+    height: 87vh;
+    background: #FBE0DC;
+    top: 50%;
+    right: 50%;
+    z-index: -1;
+    transform: translate(53%, -50%);
+    border-radius: 20px;
+  }
+}
