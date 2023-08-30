@@ -2,11 +2,11 @@ import {Component, Input} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-choice',
-  templateUrl: './choice.component.html',
-  styleUrls: ['./choice.component.scss']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss']
 })
-export class ChoiceComponent {
+export class CardComponent {
   @Input() title: string = '';
   @Input() img: string = '';
   @Input() background: string = '';

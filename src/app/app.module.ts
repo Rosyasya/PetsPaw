@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from "@angular/router";
 import { PreviewComponent } from './modules/preview/preview.component';
-import { ChoiceComponent } from './components/choice/choice.component';
+import { CardComponent } from './components/card/card.component';
 import { VotingComponent } from './modules/voting/voting.component';
 import { BreedsComponent } from './modules/breeds/breeds.component';
 import { GalleryComponent } from './modules/gallery/gallery.component';
@@ -20,7 +20,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     PreviewComponent,
-    ChoiceComponent,
+    CardComponent,
     VotingComponent,
     BreedsComponent,
     GalleryComponent
