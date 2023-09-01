@@ -14,3 +14,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.pinky {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #FBE0DC;
+  cursor: pointer;
+}

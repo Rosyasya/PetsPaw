@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-breeds',
   templateUrl: './breeds.component.html',
-  styleUrls: ['./breeds.component.css']
+  styleUrls: ['./breeds.component.scss']
 })
 export class BreedsComponent {
-
+  breed: string = 'test breed';
 }

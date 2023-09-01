@@ -1,13 +1,15 @@
 .wrapper {
+  padding-top: 30px;
   width: 100%;
   display: flex;
 }
 
 .leftside__container {
   width: 50%;
-  padding: 30px 0px 0px 147px;
+  padding: 0px 0px 0px 147px;
 
   &-logo {
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -16,14 +18,22 @@
   &-start {
     padding-top: 80px;
 
+    h1 {
+      font-size: 44px;
+      font-weight: 500;
+    }
+
     h3 {
       padding-top: 10px;
-      color: #8C8C8C;
+      font-size: 20px;
       font-weight: 400;
+      color: #8C8C8C;
     }
 
     h2 {
       padding: 60px 0px 20px 0px;
+      font-size: 20px;
+      font-weight: 500;
     }
   }
 
@@ -33,7 +43,7 @@
   width: 50%;
 }
 
-.choice {
+.cards {
   display: flex;
   gap: 16px;
 }

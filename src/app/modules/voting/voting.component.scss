@@ -1,0 +1,148 @@
+.vote {
+  padding-right: 30px;
+  height: 97vh;
+  overflow-y: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      padding-left: 20px;
+      width: 100%;
+      height: 60px;
+      border: none;
+      border-radius: 20px;
+      font-size: 20px;
+      outline: none;
+    }
+
+    button {
+      background: white;
+      width: 60px;
+      height: 60px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  }
+
+  &__container {
+    height: 87vh;
+    margin-top: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+
+      button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        background: #FBE0DC;
+        cursor: pointer;
+      }
+
+      h1 {
+        padding: 5px 30px;
+        font-size: 20px;
+        font-weight: 500;
+        background: #FF868E;
+        border-radius: 10px;
+        color: white;
+        letter-spacing: 2px;
+      }
+    }
+
+    &-img {
+      width: 100%;
+    }
+
+    &-buttons {
+      margin: -46px auto 0 auto;
+      padding: 4px;
+      width: 252px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      border-radius: 20px;
+      background: white;
+      z-index: 1;
+
+      button {
+        color: white;
+        width: 80px;
+        height: 80px;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:nth-of-type(1) {
+        background: #97EAB9;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+      }
+
+      button:nth-of-type(2) {
+        background: #FF868E;
+      }
+
+      button:nth-of-type(3) {
+        background: #FFD280;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+    }
+
+    &-history {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: scroll;
+
+      &__item {
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: #F8F8F7;
+        border-radius: 10px;
+
+        h3 {
+          font-size: 16px;
+          font-weight: 400;
+        }
+
+        h3:nth-of-type(1) {
+          border-radius: 5px;
+          padding: 3px 10px;
+          background: white;
+        }
+
+        h3:nth-of-type(2) {
+          flex: 1;
+          font-weight: 500;
+
+          span {
+            font-weight: 400;
+          }
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
