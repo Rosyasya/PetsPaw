@@ -18,4 +18,5 @@ export class ButtonComponent {
   @Input() padding: string = '15px';
   @Input() borderRadius: string = '';
   @Input() link?: string;
+  @Input() background?: string;
 }

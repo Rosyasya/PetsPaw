@@ -2,8 +2,9 @@
                        [ngStyle]="{'font-size' : titleSize,
                                    'flex-direction': isReversed ? 'row-reverse' : '',
                                    'padding': padding,
-                                   'border-radius': borderRadius}"
-                       (click)="callback"
+                                   'border-radius': borderRadius,
+                                   'background': background}"
+                       (click)="callback()"
                        [disabled]="isDisabled"
                        [type]="type"
                        [routerLink]="link"

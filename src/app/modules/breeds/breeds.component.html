@@ -8,39 +8,16 @@
 
   <div class="breeds__container">
     <div class="breeds__container-header">
-      <button class="pinky"><img src="assets/images/back.png" alt="back"></button>
+      <app-button [icon]="'icon-back'" [iconSize]="'20px'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
       <h1>BREEDS</h1>
-      <app-select></app-select>
-<!--      <button class="breeds__container-header__filter"><img src="assets/images/filter_up.png" alt="filter_up"></button>-->
-<!--      <button class="breeds__container-header__filter"><img src="assets/images/filter_down.png" alt="filter_down"></button>-->
+      <app-select [width]="'226px'" [placeholder]="'All breeds'"></app-select>
+      <app-select [width]="'101px'" [placeholder]="'Limit: 10'"></app-select>
+      <app-button [icon]="'icon-filter_up'" [iconSize]="'21px'" [background]="'#F8F8F7'" [callback]="test1"></app-button>
+      <app-button [icon]="'icon-filter_down'" [iconSize]="'21px'" [background]="'#F8F8F7'" [callback]="test2"></app-button>
     </div>
 
     <div class="breeds__container-grid">
-      <div class="breeds__container-grid__item first">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="breeds__container-grid__item-breeds">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-      <div class="breeds__container-grid__item second">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="breeds__container-grid__item-breeds">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-      <div class="breeds__container-grid__item third">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="breeds__container-grid__item-breeds">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-      <div class="breeds__container-grid__item fourth">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="breeds__container-grid__item-breeds">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-      <div class="breeds__container-grid__item fifth">
+      <div class="breeds__container-grid__item" *ngFor="let breed of breeds">
         <img src="assets/images/cat.png" alt="cat">
         <div class="breeds__container-grid__item-breeds">
           <h2>{{breed}}</h2>
