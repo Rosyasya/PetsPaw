@@ -1,42 +1,47 @@
-<div class="vote">
-  <div class="vote__header">
-    <input type="text" placeholder="Search for breeds by name">
-    <button><img src="assets/images/like.png" alt="like"></button>
-    <button><img src="assets/images/favourite.png" alt="favourite"></button>
-    <button><img src="assets/images/dislike.png" alt="dislike"></button>
+<div class="voting">
+  <div class="voting__header">
+    <app-input [icon]="'icon-search'" [iconSize]="'20px'"
+               [placeholder]="'Search for breeds by name'"
+               [buttonClass]="'secondary'"
+               [buttonPadding]="'10px'"
+               [buttonBorderRadius]="'10px'"
+               ></app-input>
+    <app-button [icon]="'icon-like'"></app-button>
+    <app-button [icon]="'icon-favourite'"></app-button>
+    <app-button [icon]="'icon-dislike'"></app-button>
   </div>
 
-  <div class="vote__container">
-    <div class="vote__container-header">
-      <button><img src="assets/images/back.png" alt="back"></button>
+  <div class="voting__container">
+    <div class="voting__container-header">
+      <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
       <h1>VOTING</h1>
     </div>
 
-    <img class="vote__container-img" src="assets/images/cat.png" alt="cat">
+    <img class="voting__container-img" src="assets/images/cat.png" alt="cat">
 
-    <div class="vote__container-buttons">
+    <div class="voting__container-buttons">
       <button><img src="assets/images/like_white.png" alt="like"></button>
       <button><img src="assets/images/favourite_white.png" alt="favourite"></button>
       <button><img src="assets/images/dislike_white.png" alt="dislike"></button>
     </div>
 
-    <div class="vote__container-history">
-      <div class="vote__container-history__item">
+    <div class="voting__container-history">
+      <div class="voting__container-history__item">
         <h3>22:35</h3>
         <h3><span>Image ID:</span> fQSunHvl8 <span>was added to Favourites</span></h3>
         <img src="assets/images/like.png" alt="like">
       </div>
-      <div class="vote__container-history__item">
+      <div class="voting__container-history__item">
         <h3>22:35</h3>
         <h3><span>Image ID:</span> fQSunHvl8 <span>was added to Favourites</span></h3>
         <img src="assets/images/like.png" alt="like">
       </div>
-      <div class="vote__container-history__item">
+      <div class="voting__container-history__item">
         <h3>22:35</h3>
         <h3><span>Image ID:</span> fQSunHvl8 <span>was added to Favourites</span></h3>
         <img src="assets/images/like.png" alt="like">
       </div>
-      <div class="vote__container-history__item">
+      <div class="voting__container-history__item">
         <h3>22:35</h3>
         <h3><span>Image ID:</span> fQSunHvl8 <span>was added to Favourites</span></h3>
         <img src="assets/images/like.png" alt="like">

@@ -1,0 +1,13 @@
+<button class="button" [ngClass]="{'secondary': class ? 'secondary' : ''}"
+                       [ngStyle]="{'font-size' : titleSize,
+                                   'flex-direction': isReversed ? 'row-reverse' : '',
+                                   'padding': padding,
+                                   'border-radius': borderRadius}"
+                       (click)="callback"
+                       [disabled]="isDisabled"
+                       [type]="type"
+                       [routerLink]="link"
+                       >
+  {{title}}
+  <i [class]="icon" [ngStyle]="{'font-size': iconSize}"></i>
+</button>

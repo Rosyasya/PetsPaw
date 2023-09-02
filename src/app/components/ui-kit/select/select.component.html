@@ -1,0 +1,25 @@
+<div class="select">
+  <p class="select__label">{{label}}</p>
+
+  <div class="select__container" (click)="open = !open">
+    <p class="select__container-placeholder">{{placeholder}}</p>
+    <i class="icon-arrow_down" *ngIf="!open"></i>
+    <i class="icon-arrow_up" *ngIf="open"></i>
+  </div>
+
+  <div class="options" *ngIf="open">
+
+    <ul class="options__list">
+      <li class="options__no-result" *ngIf="!options.length">
+        No result found
+      </li>
+      <li class="options__list-item"
+          *ngFor="let option of options"
+          (click)="selectOption(option)"
+      >
+        {{option.name}}
+      </li>
+    </ul>
+
+  </div>
+</div>

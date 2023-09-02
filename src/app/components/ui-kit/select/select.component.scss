@@ -1,0 +1,42 @@
+.select {
+  position: relative;
+  padding: 8px 10px;
+  background: #F8F8F7;
+  border-radius: 10px;
+
+  &__label {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  &__container {
+    width: 226px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-placeholder {
+      font-size: 16px;
+      font-weight: 400;
+      color: #8C8C8C;
+    }
+  }
+}
+
+.options {
+  position: absolute;
+  top: 8px;
+
+  &__list {
+
+    &-item {
+
+    }
+  }
+
+  &__no-result {
+
+  }
+}

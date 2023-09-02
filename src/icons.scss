@@ -23,6 +23,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow_up:before {
+  content: "\e90e";
+  color: #8c8c8c;
+}
 .icon-upload:before {
   content: "\e900";
   color: #ff868e;
