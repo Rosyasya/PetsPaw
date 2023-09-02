@@ -3,6 +3,7 @@
   padding: 8px 10px;
   background: #F8F8F7;
   border-radius: 10px;
+  z-index: 999;
 
   &__label {
     font-size: 10px;
@@ -17,6 +18,13 @@
     align-items: center;
     justify-content: space-between;
 
+    &-value {
+      position: absolute;
+      font-size: 16px;
+      font-weight: 400;
+      color: #8C8C8C;
+    }
+
     &-placeholder {
       font-size: 16px;
       font-weight: 400;
@@ -26,13 +34,25 @@
 }
 
 .options {
+  width: 100%;
+  padding: 20px;
   position: absolute;
-  top: 8px;
+  top: 39px;
+  left: 0px;
+  gap: 10px;
+  border-radius: 30px;
+  background: white;
 
   &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     &-item {
-
+      font-size: 16px;
+      font-weight: 400;
+      color: #8C8C8C;
+      cursor: pointer;
     }
   }
 

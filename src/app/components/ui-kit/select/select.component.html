@@ -2,6 +2,7 @@
   <p class="select__label">{{label}}</p>
 
   <div class="select__container" (click)="open = !open">
+    <div class="select__container-value">{{value}}</div>
     <p class="select__container-placeholder">{{placeholder}}</p>
     <i class="icon-arrow_down" *ngIf="!open"></i>
     <i class="icon-arrow_up" *ngIf="open"></i>
