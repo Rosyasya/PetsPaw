@@ -14,14 +14,19 @@ import { SelectComponent } from './components/ui-kit/select/select.component';
 import { GridComponent } from './components/ui-kit/grid/grid.component';
 import { GridItemComponent } from './components/ui-kit/grid/grid-item/grid-item.component';
 import { InputComponent } from './components/ui-kit/input/input.component';
+import { SliderComponent } from './components/ui-kit/slider/slider.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
-  { path: '', component: PreviewComponent},
-  { path: 'voting', component: VotingComponent},
-  { path: 'breeds', component: BreedsComponent, children: [
-      { path: 'info', component: BreedsInfoComponent},
+  { path: '', children: [
+      { path: '', component: PreviewComponent},
+      { path: 'voting', component: VotingComponent},
+      { path: 'breeds', children: [
+          { path: '', component: BreedsComponent},
+          { path: ':id', component: BreedsInfoComponent},
+        ]},
+      { path: 'gallery', component: GalleryComponent},
     ]},
-  { path: 'gallery', component: GalleryComponent},
 ];
 
 @NgModule({
@@ -37,10 +42,12 @@ const routes: Routes = [
     SelectComponent,
     GridComponent,
     GridItemComponent,
-    InputComponent
+    InputComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
   providers: [],

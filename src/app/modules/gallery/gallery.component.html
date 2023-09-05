@@ -1,43 +1,36 @@
 <div class="gallery">
   <div class="gallery__header">
-    <input type="text" placeholder="Search for gallery by name">
-    <button><img src="assets/images/like.png" alt="like"></button>
-    <button><img src="assets/images/favourite.png" alt="favourite"></button>
-    <button><img src="assets/images/dislike.png" alt="dislike"></button>
+    <app-input [icon]="'icon-search'" [iconSize]="'20px'" [iconColor]="'#FF868E'"
+               [placeholder]="'Search for breeds by name'"
+               [buttonClass]="'secondary'"
+               [buttonPadding]="'10px'"
+               [buttonBorderRadius]="'10px'"
+    ></app-input>
+    <app-button [icon]="'icon-like'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [icon]="'icon-favourite'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
   </div>
 
   <div class="gallery__container">
     <div class="gallery__container-header">
-      <button class="pinky"><img src="assets/images/back.png" alt="back"></button>
-      <h1>GALLERY</h1>
-      <button class="gallery__container-header__upload"><img src="assets/images/upload.png" alt="upload">UPLOAD</button>
+      <div class="gallery__container-header__container">
+        <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
+        <h1>GALLERY</h1>
+      </div>
+      <app-button [class]="'secondary'" [icon]="'icon-upload'" [iconSize]="'16px'" [iconColor]="'#FF868E'" [title]="'UPLOAD'" [padding]="'12px 30px'" [borderRadius]="'10px'" [isReversed]="true"></app-button>
     </div>
 
     <div class="gallery__container-settings">
       <div class="gallery__container-settings__container">
-        <label>test</label>
-        <select>
-          <option value="test1">test1</option>
-          <option value="test2">test2</option>
-        </select>
-        <label>test</label>
-        <select>
-          <option value="test1">test1</option>
-          <option value="test2">test2</option>
-        </select>
-      </div>
-      <div class="gallery__container-settings__container">
-        <label>test</label>
-        <select>
-          <option value="test1">test1</option>
-          <option value="test2">test2</option>
-        </select>
-        <label>test</label>
-        <select>
-          <option value="test1">test1</option>
-          <option value="test2">test2</option>
-        </select>
-        <button><img src="assets/images/refresh.png" alt="refresh"></button>
+        <div class="gallery__container-settings__container-options">
+          <app-select [label]="'ORDER'" [placeholder]="'Random'" [width]="'290px'" [background]="'white'" [iconColor]="'#8C8C8C'"></app-select>
+          <app-select [label]="'TYPE'" [placeholder]="'Static'" [width]="'290px'" [background]="'white'" [iconColor]="'#8C8C8C'"></app-select>
+        </div>
+        <div class="gallery__container-settings__container-options">
+          <app-select [label]="'BREED'" [placeholder]="'None'" [width]="'290px'" [background]="'white'" [iconColor]="'#8C8C8C'"></app-select>
+          <app-select [label]="'LIMIT'" [placeholder]="'5 items per page'" [width]="'240px'" [background]="'white'" [iconColor]="'#8C8C8C'"></app-select>
+          <app-button [icon]="'icon-refresh'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [padding]="'10px'" [borderRadius]="'10px'"></app-button>
+        </div>
       </div>
     </div>
 

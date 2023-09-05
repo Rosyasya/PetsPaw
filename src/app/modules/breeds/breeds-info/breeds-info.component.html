@@ -1,1 +1,41 @@
-<p>breeds-info works!</p>
+<div class="info">
+  <div class="info__header">
+    <app-input [icon]="'icon-search'" [iconSize]="'20px'"
+               [placeholder]="'Search for breeds by name'"
+               [buttonClass]="'secondary'"
+               [buttonPadding]="'10px'"
+               [buttonBorderRadius]="'10px'"
+    ></app-input>
+    <app-button [icon]="'icon-like'"></app-button>
+    <app-button [icon]="'icon-favourite'"></app-button>
+    <app-button [icon]="'icon-dislike'"></app-button>
+  </div>
+
+  <div class="info__container">
+    <div class="info__container-header">
+      <app-button [icon]="'icon-back'" [iconSize]="'20px'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'" [link]="'../'"></app-button>
+      <h1>BREEDS</h1>
+      <h1>ID</h1>
+    </div>
+
+    <div class="slider">
+      <img src="assets/images/cat.png" alt="cat">
+    </div>
+
+    <div class="info__container-breed">
+      <h2>Basenji</h2>
+      <h3>Family companion cat</h3>
+      <div class="info__container-breed__container">
+        <div class="info__container-breed__container-info">
+          <h4>Temperament: <br/>
+            <span style="color: #8C8C8C; font-weight: 400;">Active, Energetic, Independent, Intelligent, Gentle</span></h4>
+        </div>
+        <div class="info__container-breed__container-info">
+          <h4>Origin: <span style="color: #8C8C8C; font-weight: 400;">United States</span></h4>
+          <h4>Weight: <span style="color: #8C8C8C; font-weight: 400;">3 - 5 kgs</span></h4>
+          <h4>Life span: <span style="color: #8C8C8C; font-weight: 400;">14 - 15 years</span></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

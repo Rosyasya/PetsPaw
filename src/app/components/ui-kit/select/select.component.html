@@ -1,14 +1,14 @@
 <div class="select" [ngStyle]="{'width': width}">
   <p class="select__label">{{label}}</p>
 
-  <div class="select__container" (click)="open = !open">
+  <div class="select__container" (click)="open = !open" [ngStyle]="{'background': background}">
     <div class="select__container-value">{{value}}</div>
     <p class="select__container-placeholder">{{placeholder}}</p>
-    <i class="icon-arrow_down" *ngIf="!open"></i>
-    <i class="icon-arrow_up" *ngIf="open"></i>
+    <i class="icon-arrow_down" *ngIf="!open" [ngStyle]="{'color': iconColor}"></i>
+    <i class="icon-arrow_up" *ngIf="open" [ngStyle]="{'color': iconColor}"></i>
   </div>
 
-  <div class="options" *ngIf="open">
+  <div class="options" *ngIf="open" [ngStyle]="{'top': label ? '55px' : ''}">
 
     <ul class="options__list">
       <li class="options__no-result" *ngIf="!options.length">

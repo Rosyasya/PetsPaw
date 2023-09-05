@@ -1,28 +1,28 @@
 <div class="voting">
   <div class="voting__header">
-    <app-input [icon]="'icon-search'" [iconSize]="'20px'"
+    <app-input [icon]="'icon-search'" [iconSize]="'20px'" [iconColor]="'#FF868E'"
                [placeholder]="'Search for breeds by name'"
                [buttonClass]="'secondary'"
                [buttonPadding]="'10px'"
                [buttonBorderRadius]="'10px'"
                ></app-input>
-    <app-button [icon]="'icon-like'"></app-button>
-    <app-button [icon]="'icon-favourite'"></app-button>
-    <app-button [icon]="'icon-dislike'"></app-button>
+    <app-button [icon]="'icon-like'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [icon]="'icon-favourite'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
   </div>
 
   <div class="voting__container">
     <div class="voting__container-header">
-      <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
+      <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
       <h1>VOTING</h1>
     </div>
 
-    <img class="voting__container-img" src="assets/images/cat.png" alt="cat">
+    <img class="voting__container-img" alt="cat">
 
     <div class="voting__container-buttons">
-      <button><img src="assets/images/like_white.png" alt="like"></button>
-      <button><img src="assets/images/favourite_white.png" alt="favourite"></button>
-      <button><img src="assets/images/dislike_white.png" alt="dislike"></button>
+      <app-button [class]="'primary'" [icon]="'icon-like'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#97EAB9'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px'"></app-button>
+      <app-button [class]="'primary'" [icon]="'icon-favourite'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FF868E'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px'"></app-button>
+      <app-button [class]="'primary'" [icon]="'icon-dislike'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FFD280'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px'"></app-button>
     </div>
 
     <div class="voting__container-history">

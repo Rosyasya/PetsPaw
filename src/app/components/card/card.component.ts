@@ -17,6 +17,12 @@ export class CardComponent {
 
   switchTab() {
     this.router.navigate(['/', this.title.toLowerCase()]);
+
+    if (this.router.getCurrentNavigation()?.initialUrl.toString() === '/' + this.title.toLowerCase()) {
+      this.isActivated = true;
+    } else {
+      this.isActivated = false;
+    }
   }
 
 }

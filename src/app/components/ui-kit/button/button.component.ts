@@ -10,6 +10,7 @@ export class ButtonComponent {
   @Input() titleSize: string = '12px';
   @Input() icon: string = '';
   @Input() iconSize: string = '30px';
+  @Input() iconColor: string = 'black';
   @Input() callback: any;
   @Input() isReversed: boolean = false;
   @Input() isDisabled: boolean = false;
@@ -19,4 +20,6 @@ export class ButtonComponent {
   @Input() borderRadius: string = '';
   @Input() link?: string;
   @Input() background?: string;
+  @Input() width?: string;
+  @Input() height?: string;
 }

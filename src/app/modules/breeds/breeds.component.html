@@ -1,19 +1,24 @@
 <div class="breeds">
   <div class="breeds__header">
-    <input type="text" placeholder="Search for breeds by name">
-    <button><img src="assets/images/like.png" alt="like"></button>
-    <button><img src="assets/images/favourite.png" alt="favourite"></button>
-    <button><img src="assets/images/dislike.png" alt="dislike"></button>
+    <app-input [icon]="'icon-search'" [iconSize]="'20px'" [iconColor]="'#FF868E'"
+               [placeholder]="'Search for breeds by name'"
+               [buttonClass]="'secondary'"
+               [buttonPadding]="'10px'"
+               [buttonBorderRadius]="'10px'"
+    ></app-input>
+    <app-button [icon]="'icon-like'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [icon]="'icon-favourite'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
   </div>
 
   <div class="breeds__container">
     <div class="breeds__container-header">
-      <app-button [icon]="'icon-back'" [iconSize]="'20px'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
+      <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
       <h1>BREEDS</h1>
-      <app-select [width]="'226px'" [placeholder]="'All breeds'"></app-select>
-      <app-select [width]="'101px'" [placeholder]="'Limit: 10'"></app-select>
-      <app-button [icon]="'icon-filter_up'" [iconSize]="'21px'" [background]="'#F8F8F7'" [callback]="test1"></app-button>
-      <app-button [icon]="'icon-filter_down'" [iconSize]="'21px'" [background]="'#F8F8F7'" [callback]="test2"></app-button>
+      <app-select [width]="'226px'" [placeholder]="'All breeds'" [iconColor]="'#8C8C8C'"></app-select>
+      <app-select [width]="'101px'" [placeholder]="'Limit: 10'" [iconColor]="'#8C8C8C'"></app-select>
+      <app-button [icon]="'icon-filter_up'" [iconSize]="'21px'" [iconColor]="'#8C8C8C'" [background]="'#F8F8F7'" [callback]="test1"></app-button>
+      <app-button [icon]="'icon-filter_down'" [iconSize]="'21px'" [iconColor]="'#8C8C8C'" [background]="'#F8F8F7'" [callback]="test2"></app-button>
     </div>
 
     <div class="breeds__container-grid">

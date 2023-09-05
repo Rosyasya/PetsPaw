@@ -1,6 +1,5 @@
-<div (click)="switchTab()" class="wrapper" [ngClass]="{'active': isActivated}">
-  <div class="wrapper__container" [ngStyle]="{'background': background}"
-                                     >
+<div (click)="switchTab()" class="wrapper" [class.active]="isActivated">
+  <div class="wrapper__container" [ngStyle]="{'background': background}">
     <img [src]="img" [alt]="img">
   </div>
 

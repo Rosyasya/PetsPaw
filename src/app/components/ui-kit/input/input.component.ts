@@ -9,6 +9,7 @@ export class InputComponent {
   @Input() width: string = '100%';
   @Input() icon: string = '';
   @Input() iconSize: string = '30px';
+  @Input() iconColor: string = 'black';
   @Input() placeholder: string = '';
   @Input() isDisabled: boolean = false;
   @Input() isRequired: boolean = false;

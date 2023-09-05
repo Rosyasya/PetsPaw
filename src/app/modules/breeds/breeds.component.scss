@@ -7,25 +7,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-
-    input {
-      padding-left: 20px;
-      height: 60px;
-      border: none;
-      border-radius: 20px;
-      font-size: 20px;
-      outline: none;
-      flex: 1;
-    }
-
-    button {
-      background: white;
-      width: 60px;
-      height: 60px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-    }
   }
 
   &__container {

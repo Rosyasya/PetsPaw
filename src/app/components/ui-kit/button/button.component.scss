@@ -18,10 +18,31 @@
   background: #FBE0DC;
 }
 
+.active {
+  background: #FF868E;
+
+  i {
+    color: white !important;
+  }
+}
+
+.primary {
+
+}
+
+.primary:hover {
+  opacity: 30%;
+}
+
 .secondary {
   background: #FBE0DC;
 }
 
 .secondary:hover {
+  color: white;
   background: #FF868E;
+
+  i {
+    color: white !important;
+  }
 }

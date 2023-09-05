@@ -58,30 +58,6 @@
       border-radius: 20px;
       background: white;
       z-index: 1;
-
-      button {
-        color: white;
-        width: 80px;
-        height: 80px;
-        border: none;
-        cursor: pointer;
-      }
-
-      button:nth-of-type(1) {
-        background: #97EAB9;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-      }
-
-      button:nth-of-type(2) {
-        background: #FF868E;
-      }
-
-      button:nth-of-type(3) {
-        background: #FFD280;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-      }
     }
 
     &-history {

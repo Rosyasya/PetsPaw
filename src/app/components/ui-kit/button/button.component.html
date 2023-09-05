@@ -1,14 +1,18 @@
-<button class="button" [ngClass]="{'secondary': class ? 'secondary' : ''}"
+<button class="button" [class.primary]="class === 'primary'"
+                       [class.secondary]="class === 'secondary'"
                        [ngStyle]="{'font-size' : titleSize,
                                    'flex-direction': isReversed ? 'row-reverse' : '',
                                    'padding': padding,
                                    'border-radius': borderRadius,
-                                   'background': background}"
+                                   'background': background,
+                                   'width': width,
+                                   'height': height}"
                        (click)="callback()"
                        [disabled]="isDisabled"
                        [type]="type"
                        [routerLink]="link"
                        >
   {{title}}
-  <i [class]="icon" [ngStyle]="{'font-size': iconSize}"></i>
+  <i [class]="icon" [ngStyle]="{'font-size': iconSize,
+                                'color': iconColor}"></i>
 </button>
