@@ -6,11 +6,14 @@ import {CatDataService} from "../../application/api/cat-data.service";
   templateUrl: './voting.component.html',
   styleUrls: ['./voting.component.scss']
 })
-export class VotingComponent extends CatDataService implements OnInit{
+export class VotingComponent implements OnInit{
+  constructor(private service: CatDataService) {
+  }
+
   data: any;
 
   ngOnInit(): void {
-    this.getData().subscribe( (response: any) => {
+    this.service.getData().subscribe( (response: any) => {
       this.data = response;
     });
 
