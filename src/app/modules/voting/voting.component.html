@@ -12,8 +12,6 @@
     <app-button [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
   </div>
 
-  {{ voting | json }}
-
   <div class="voting__container">
     <div class="voting__container-header">
       <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
@@ -29,25 +27,15 @@
     </div>
 
     <div class="voting__container-history">
-      <div class="voting__container-history__item">
-        <h3>22:35</h3>
-        <h3><span>Image ID:</span> fQSunHvl8 <span>was added to Favourites</span></h3>
-        <img src="assets/images/like.png" alt="like">
-      </div>
-      <div class="voting__container-history__item">
-        <h3>22:35</h3>
-        <h3><span>Image ID:</span> fQSunHvl8 <span>was added to Favourites</span></h3>
-        <img src="assets/images/like.png" alt="like">
-      </div>
-      <div class="voting__container-history__item">
-        <h3>22:35</h3>
-        <h3><span>Image ID:</span> fQSunHvl8 <span>was added to Favourites</span></h3>
-        <img src="assets/images/like.png" alt="like">
-      </div>
-      <div class="voting__container-history__item">
-        <h3>22:35</h3>
-        <h3><span>Image ID:</span> fQSunHvl8 <span>was added to Favourites</span></h3>
-        <img src="assets/images/like.png" alt="like">
+      <div class="voting__container-history__item" *ngFor="let vote of voting">
+        <h3>{{getTime(vote.created_at)}}</h3>
+        <h3><span>Image ID:</span> {{vote.image_id}} <span *ngIf="vote.value === 1">was added to Likes</span>
+                                                     <span *ngIf="vote.value === 0">was added to Favourite</span>
+                                                     <span *ngIf="vote.value === -1">was added to Dislikes</span>
+        </h3>
+        <i *ngIf="vote.value === 1" class="icon-like"></i>
+        <i *ngIf="vote.value === 0" class="icon-favourite"></i>
+        <i *ngIf="vote.value === -1" class="icon-dislike"></i>
       </div>
     </div>
   </div>

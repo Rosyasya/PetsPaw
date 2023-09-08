@@ -16,48 +16,58 @@ export class VotingComponent implements OnInit{
     console.log(event);
   }
 
+  getTime(voteTime: string) {
+    const hours = new Date(voteTime).getHours();
+    const minutes = new Date(voteTime).getMinutes();
+
+    return hours + ':' + minutes;
+  }
+
   likeHandle() {
     this.service.postData({
       "image_id": this.cat[0].id,
-      "sub_id": 1,
       "value": 1,
     });
 
-    this.service.getImage().subscribe( (response: any) => {
-      this.cat = response;
-      console.log(this.cat);
-    });
-
-    this.service.getVoting().subscribe( (response: any) => {
-      this.voting = response;
-      console.log('voting after like =>', this.voting);
-    });
+    this.service.getData()
+      .subscribe((response: any) => {
+        this.cat = response[0];
+        this.voting = response[1];
+      })
   }
 
   favouriteHandle() {
-    this.service.getImage().subscribe( (response: any) => {
-      this.cat = response;
-      console.log(this.cat);
+    this.service.postData({
+      "image_id": this.cat[0].id,
+      "value": 0,
     });
+
+    this.service.getData()
+      .subscribe((response: any) => {
+        this.cat = response[0];
+        this.voting = response[1];
+      })
   }
 
   dislikeHandle() {
-    this.service.getImage().subscribe( (response: any) => {
-      this.cat = response;
-      console.log(this.cat);
+    this.service.postData({
+      "image_id": this.cat[0].id,
+      "value": -1,
     });
+
+    this.service.getData()
+      .subscribe((response: any) => {
+        this.cat = response[0];
+        this.voting = response[1];
+      })
   }
 
   ngOnInit(): void {
-    this.service.getImage().subscribe( (response: any) => {
-      this.cat = response;
-      console.log(this.cat);
-    });
-
-    this.service.getVoting().subscribe( (response: any) => {
-      this.voting = response;
-      console.log(this.voting);
-    });
+    this.service.getData()
+      .subscribe((response: any) => {
+        this.cat = response[0];
+        this.voting = response[1];
+      })
   }
 
 }

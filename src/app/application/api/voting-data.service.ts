@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {forkJoin, map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -8,22 +8,28 @@ import {Observable} from "rxjs";
 export class VotingService{
   constructor(private http: HttpClient) {}
   api_key = 'live_RcW4246MGl8XvhmGIWxPDHVRbDw9K3yAFLvBfPpoSAd8sDesrIbbxY1C6fmPNcVM';
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'x-api-key': this.api_key,
+  });
+  options = {
+    headers: this.headers,
+  }
+
+  getData():Observable<any> {
+    return forkJoin(this.getImage(), this.getVoting());
+  }
 
   getImage():Observable<any> {
-    return this.http.get('https://api.thecatapi.com/v1/images/search',{headers: {
-        'x-api-key': this.api_key
-      }});
+    return this.http.get('https://api.thecatapi.com/v1/images/search', this.options);
   }
 
-  getVoting() {
-    return this.http.get('https://api.thecatapi.com/v1/votes?limit=10&order=DESC',{headers: {
-        'x-api-key': this.api_key
-      }});
+  getVoting():Observable<any> {
+    return this.http.get('https://api.thecatapi.com/v1/votes?limit=10&order=DESC', this.options);
   }
 
-  postData(data: any) {
-    this.http.post('https://api.thecatapi.com/v1/votes', data, {headers: {
-        'x-api-key': this.api_key
-      }});
+  postData(data: any):Observable<any> {
+    return this.http.post('https://api.thecatapi.com/v1/votes', data, this.options)
+      .pipe(map((response: any) => response));
   }
 }
