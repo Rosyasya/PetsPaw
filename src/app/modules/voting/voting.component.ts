@@ -9,15 +9,18 @@ import {CatDataService} from "../../application/api/cat-data.service";
 export class VotingComponent implements OnInit{
   constructor(private service: CatDataService) {
   }
-
   data: any;
+  img: any;
+
+  searchImg(event: any) {
+    console.log(event);
+  }
 
   ngOnInit(): void {
     this.service.getData().subscribe( (response: any) => {
       this.data = response;
+      console.log(this.data);
     });
-
-    console.log(this.data);
   }
 
 }

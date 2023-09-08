@@ -16,6 +16,7 @@ import { GridItemComponent } from './components/ui-kit/grid/grid-item/grid-item.
 import { InputComponent } from './components/ui-kit/input/input.component';
 import { SliderComponent } from './components/ui-kit/slider/slider.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   { path: '', children: [
@@ -48,6 +49,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes),
   ],
   providers: [],
