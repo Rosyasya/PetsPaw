@@ -15,7 +15,7 @@ import { GridComponent } from './components/ui-kit/grid/grid.component';
 import { GridItemComponent } from './components/ui-kit/grid/grid-item/grid-item.component';
 import { InputComponent } from './components/ui-kit/input/input.component';
 import { SliderComponent } from './components/ui-kit/slider/slider.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [

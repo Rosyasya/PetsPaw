@@ -12,18 +12,20 @@
     <app-button [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
   </div>
 
+  {{ voting | json }}
+
   <div class="voting__container">
     <div class="voting__container-header">
       <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
       <h1>VOTING</h1>
     </div>
 
-    <img class="voting__container-img" [src]="img ? img : data[0].image.url" alt="cat">
+    <img class="voting__container-img" [src]="cat[0].url" alt="cat">
 
     <div class="voting__container-buttons">
-      <app-button [class]="'primary'" [icon]="'icon-like'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#97EAB9'" [width]="'80px'" [height]="'80px'" [borderRadius]="'20px 0 0px 20px'"></app-button>
-      <app-button [class]="'primary'" [icon]="'icon-favourite'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FF868E'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px'"></app-button>
-      <app-button [class]="'primary'" [icon]="'icon-dislike'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FFD280'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px 20px 20px 0px'"></app-button>
+      <app-button (callback)="likeHandle()" [class]="'primary'" [icon]="'icon-like'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#97EAB9'" [width]="'80px'" [height]="'80px'" [borderRadius]="'20px 0 0px 20px'"></app-button>
+      <app-button (callback)="favouriteHandle()" [class]="'primary'" [icon]="'icon-favourite'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FF868E'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px'"></app-button>
+      <app-button (callback)="dislikeHandle()" [class]="'primary'" [icon]="'icon-dislike'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FFD280'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px 20px 20px 0px'"></app-button>
     </div>
 
     <div class="voting__container-history">

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CatDataService} from "../../application/api/cat-data.service";
+import {VotingService} from "../../application/api/voting-data.service";
 
 @Component({
   selector: 'app-voting',
@@ -7,19 +7,56 @@ import {CatDataService} from "../../application/api/cat-data.service";
   styleUrls: ['./voting.component.scss']
 })
 export class VotingComponent implements OnInit{
-  constructor(private service: CatDataService) {
+  constructor(private service: VotingService) {
   }
-  data: any;
-  img: any;
+  cat: any;
+  voting: any;
 
   searchImg(event: any) {
     console.log(event);
   }
 
+  likeHandle() {
+    this.service.postData({
+      "image_id": this.cat[0].id,
+      "sub_id": 1,
+      "value": 1,
+    });
+
+    this.service.getImage().subscribe( (response: any) => {
+      this.cat = response;
+      console.log(this.cat);
+    });
+
+    this.service.getVoting().subscribe( (response: any) => {
+      this.voting = response;
+      console.log('voting after like =>', this.voting);
+    });
+  }
+
+  favouriteHandle() {
+    this.service.getImage().subscribe( (response: any) => {
+      this.cat = response;
+      console.log(this.cat);
+    });
+  }
+
+  dislikeHandle() {
+    this.service.getImage().subscribe( (response: any) => {
+      this.cat = response;
+      console.log(this.cat);
+    });
+  }
+
   ngOnInit(): void {
-    this.service.getData().subscribe( (response: any) => {
-      this.data = response;
-      console.log(this.data);
+    this.service.getImage().subscribe( (response: any) => {
+      this.cat = response;
+      console.log(this.cat);
+    });
+
+    this.service.getVoting().subscribe( (response: any) => {
+      this.voting = response;
+      console.log(this.voting);
     });
   }
 
