@@ -6,23 +6,19 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent {
+export class CardComponent{
   @Input() title: string = '';
   @Input() img: string = '';
   @Input() background: string = '';
   isActivated: boolean = false;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private route: Router, private activatedRoute: ActivatedRoute) {
   }
 
   switchTab() {
-    this.router.navigate(['/', this.title.toLowerCase()]);
+    this.route.navigate(['/', this.title.toLowerCase()]);
 
-    if (this.router.getCurrentNavigation()?.initialUrl.toString() === '/' + this.title.toLowerCase()) {
-      this.isActivated = true;
-    } else {
-      this.isActivated = false;
-    }
+    
   }
 
 }

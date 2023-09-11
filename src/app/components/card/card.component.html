@@ -1,5 +1,6 @@
 <div (click)="switchTab()" class="wrapper" [class.active]="isActivated">
-  <div class="wrapper__container" [ngStyle]="{'background': background}">
+  <div class="wrapper__container" [ngStyle]="{'background': background,
+                                              'box-shadow': isActivated ? '0px 0px 10px 4px' + background : ''}">
     <img [src]="img" [alt]="img">
   </div>
 

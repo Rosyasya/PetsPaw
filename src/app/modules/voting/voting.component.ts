@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {VotingService} from "../../application/api/voting-data.service";
+import {ImageService} from "../../application/api/image-data.service";
+import {FavouriteService} from "../../application/api/favourite-data.service";
 
 @Component({
   selector: 'app-voting',
@@ -7,7 +9,7 @@ import {VotingService} from "../../application/api/voting-data.service";
   styleUrls: ['./voting.component.scss']
 })
 export class VotingComponent implements OnInit{
-  constructor(private service: VotingService) {
+  constructor(private votingService: VotingService, private imageService: ImageService, public favouriteService: FavouriteService) {
   }
   cat: any;
   voting: any;
@@ -17,57 +19,82 @@ export class VotingComponent implements OnInit{
   }
 
   getTime(voteTime: string) {
-    const hours = new Date(voteTime).getHours();
-    const minutes = new Date(voteTime).getMinutes();
+    const date = new Date(voteTime);
 
-    return hours + ':' + minutes;
+    return date.getHours() + ':' + date.getMinutes();
+  }
+
+  getOption(voteValue:number ) {
+    switch (voteValue) {
+      case 1: return `was added to Likes`
+        break;
+      case 0: return `was added to Favourite`
+        break;
+      case -1: return `was added to Dislikes`
+        break;
+      default: return ''
+        break;
+    }
+  }
+
+  getIcon(voteValue: number) {
+    switch (voteValue) {
+      case 1: return 'icon-like'
+        break;
+      case 0: return 'icon-favourite'
+        break;
+      case -1: return 'icon-dislike'
+        break;
+      default: return ''
+        break;
+    }
   }
 
   likeHandle() {
-    this.service.postData({
+    this.votingService.postVoting({
       "image_id": this.cat[0].id,
       "value": 1,
-    });
-
-    this.service.getData()
+    })
       .subscribe((response: any) => {
-        this.cat = response[0];
-        this.voting = response[1];
-      })
+        this.votingService.getVoting()
+          .subscribe((response: any) => this.voting = response)
+        this.imageService.getImage()
+          .subscribe((response: any) => this.cat = response)
+      });
   }
 
   favouriteHandle() {
-    this.service.postData({
+    this.favouriteService.postFavourite({
       "image_id": this.cat[0].id,
-      "value": 0,
-    });
-
-    this.service.getData()
+    })
       .subscribe((response: any) => {
-        this.cat = response[0];
-        this.voting = response[1];
-      })
+        this.votingService.getVoting()
+          .subscribe((response: any) => this.voting = response)
+        this.imageService.getImage()
+          .subscribe((response: any) => this.cat = response)
+        this.favouriteService.getFavourite()
+          .subscribe((response: any) => console.log(response))
+      });
   }
 
   dislikeHandle() {
-    this.service.postData({
+    this.votingService.postVoting({
       "image_id": this.cat[0].id,
       "value": -1,
-    });
-
-    this.service.getData()
+    })
       .subscribe((response: any) => {
-        this.cat = response[0];
-        this.voting = response[1];
-      })
+        this.votingService.getVoting()
+          .subscribe((response: any) => this.voting = response)
+        this.imageService.getImage()
+          .subscribe((response: any) => this.cat = response)
+      });
   }
 
   ngOnInit(): void {
-    this.service.getData()
-      .subscribe((response: any) => {
-        this.cat = response[0];
-        this.voting = response[1];
-      })
+    this.votingService.getVoting()
+      .subscribe((response: any) => this.voting = response);
+    this.imageService.getImage()
+      .subscribe((response: any) => this.cat = response);
   }
 
 }

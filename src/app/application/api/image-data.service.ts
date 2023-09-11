@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {forkJoin, map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class VotingService{
+export class ImageService {
   constructor(private http: HttpClient) {}
   api_key = 'live_RcW4246MGl8XvhmGIWxPDHVRbDw9K3yAFLvBfPpoSAd8sDesrIbbxY1C6fmPNcVM';
   headers = new HttpHeaders({
@@ -16,11 +16,11 @@ export class VotingService{
     headers: this.headers,
   }
 
-  getVoting():Observable<any> {
-    return this.http.get('https://api.thecatapi.com/v1/votes?limit=10&order=DESC', this.options);
+  getImage():Observable<any> {
+    return this.http.get('https://api.thecatapi.com/v1/images/search', this.options);
   }
 
-  postVoting(data: any):Observable<any> {
-    return this.http.post('https://api.thecatapi.com/v1/votes', data, this.options);
+  getLimitedImage():Observable<any> {
+    return this.http.get('https://api.thecatapi.com/v1/images/search?limit=10', this.options);
   }
 }

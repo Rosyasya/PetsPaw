@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {forkJoin, map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class VotingService{
+export class FavouriteService {
   constructor(private http: HttpClient) {}
   api_key = 'live_RcW4246MGl8XvhmGIWxPDHVRbDw9K3yAFLvBfPpoSAd8sDesrIbbxY1C6fmPNcVM';
   headers = new HttpHeaders({
@@ -16,11 +16,11 @@ export class VotingService{
     headers: this.headers,
   }
 
-  getVoting():Observable<any> {
-    return this.http.get('https://api.thecatapi.com/v1/votes?limit=10&order=DESC', this.options);
+  getFavourite():Observable<any> {
+    return this.http.get('https://api.thecatapi.com/v1/favourites', this.options);
   }
 
-  postVoting(data: any):Observable<any> {
-    return this.http.post('https://api.thecatapi.com/v1/votes', data, this.options);
+  postFavourite(data: any):Observable<any> {
+    return this.http.post('https://api.thecatapi.com/v1/favourites', data, this.options);
   }
 }

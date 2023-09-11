@@ -29,15 +29,9 @@
     <div class="voting__container-history">
       <div class="voting__container-history__item" *ngFor="let vote of voting">
         <h3>{{getTime(vote.created_at)}}</h3>
-        <h3><span>Image ID:</span> {{vote.image_id}} <span *ngIf="vote.value === 1">was added to Likes</span>
-                                                     <span *ngIf="vote.value === 0">was added to Favourite</span>
-                                                     <span *ngIf="vote.value === -1">was added to Dislikes</span>
-        </h3>
-        <i *ngIf="vote.value === 1" class="icon-like"></i>
-        <i *ngIf="vote.value === 0" class="icon-favourite"></i>
-        <i *ngIf="vote.value === -1" class="icon-dislike"></i>
+        <h3><span>Image ID:</span> {{vote.image_id}} <span>{{getOption(vote.value)}}</span></h3>
+        <i [class]="getIcon(vote.value)"></i>
       </div>
     </div>
   </div>
 </div>
-

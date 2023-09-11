@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent {
-  breed: string = 'test';
+  breed: string = 'test1';
 }
