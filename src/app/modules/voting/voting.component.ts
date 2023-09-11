@@ -9,10 +9,10 @@ import {FavouriteService} from "../../application/api/favourite-data.service";
   styleUrls: ['./voting.component.scss']
 })
 export class VotingComponent implements OnInit{
-  constructor(private votingService: VotingService, private imageService: ImageService, public favouriteService: FavouriteService) {
-  }
+  constructor(private votingService: VotingService, private imageService: ImageService, private favouriteService: FavouriteService) {}
   cat: any;
-  voting: any;
+
+  history = new History([], []);
 
   searchImg(event: any) {
     console.log(event);
@@ -51,50 +51,60 @@ export class VotingComponent implements OnInit{
   }
 
   likeHandle() {
-    this.votingService.postVoting({
-      "image_id": this.cat[0].id,
-      "value": 1,
-    })
-      .subscribe((response: any) => {
-        this.votingService.getVoting()
-          .subscribe((response: any) => this.voting = response)
-        this.imageService.getImage()
-          .subscribe((response: any) => this.cat = response)
-      });
+    // this.votingService.postVoting({
+    //   "image_id": this.cat[0].id,
+    //   "value": 1,
+    // })
+    //   .subscribe(() => {
+    //     this.favouriteService.getFavourite()
+    //       .subscribe((response: any) => this.history.setFavourites(response))
+    //     this.votingService.getVoting()
+    //       .subscribe((response: any) => this.history.setAction(response))
+    //     this.imageService.getImage()
+    //       .subscribe((response: any) => this.cat = response)
+    //   });
   }
 
   favouriteHandle() {
-    this.favouriteService.postFavourite({
-      "image_id": this.cat[0].id,
-    })
-      .subscribe((response: any) => {
-        this.votingService.getVoting()
-          .subscribe((response: any) => this.voting = response)
-        this.imageService.getImage()
-          .subscribe((response: any) => this.cat = response)
-        this.favouriteService.getFavourite()
-          .subscribe((response: any) => console.log(response))
-      });
+    // this.favouriteService.postFavourite({
+    //   "image_id": this.cat[0].id,
+    // })
+    //   .subscribe(() => {
+    //     this.votingService.getVoting()
+    //       .subscribe((response: any) => this.history.setAction(response))
+    //     this.imageService.getImage()
+    //       .subscribe((response: any) => this.cat = response)
+    //   });
   }
 
   dislikeHandle() {
-    this.votingService.postVoting({
-      "image_id": this.cat[0].id,
-      "value": -1,
-    })
-      .subscribe((response: any) => {
-        this.votingService.getVoting()
-          .subscribe((response: any) => this.voting = response)
-        this.imageService.getImage()
-          .subscribe((response: any) => this.cat = response)
-      });
+    // this.votingService.postVoting({
+    //   "image_id": this.cat[0].id,
+    //   "value": -1,
+    // })
+    //   .subscribe(() => {
+    //     this.votingService.getVoting()
+    //       .subscribe((response: any) => this.history.setAction(response))
+    //     this.imageService.getImage()
+    //       .subscribe((response: any) => this.cat = response)
+    //   });
   }
 
   ngOnInit(): void {
+    this.favouriteService.getFavourite()
+      .subscribe((response: any) => this.history.favourites = response);
     this.votingService.getVoting()
-      .subscribe((response: any) => this.voting = response);
+      .subscribe((response: any) => this.history.action = response);
     this.imageService.getImage()
       .subscribe((response: any) => this.cat = response);
   }
 
+}
+
+export class History {
+  constructor(public action: any, public favourites: any) {}
+
+  get list() {
+    return [...this.action, ...this.favourites];
+  }
 }
