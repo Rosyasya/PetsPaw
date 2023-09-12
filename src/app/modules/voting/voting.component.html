@@ -27,7 +27,7 @@
     </div>
 
     <div class="voting__container-history">
-      <div class="voting__container-history__item" *ngFor="let vote of sortedHistory()">
+      <div class="voting__container-history__item" *ngFor="let vote of history.list">
         <h3>{{getTime(vote.created_at)}}</h3>
         <h3><span>Image ID:</span> {{vote.image_id}} <span>{{getOption(vote.value)}}</span></h3>
         <i [class]="getIcon(vote.value)"></i>

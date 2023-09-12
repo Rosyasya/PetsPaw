@@ -88,21 +88,11 @@ export class VotingComponent implements OnInit{
       });
   }
 
-  sortedHistory() {
-    return this.history.list.sort((a, b) => a.created_at > b.created_at ? -1 : 1)
-  }
-
   ngOnInit(): void {
     this.favouriteService.getFavourite()
-      .subscribe((response: any) => {
-        this.history.favourites = response
-        console.log(response)
-      });
+      .subscribe((response: any) => this.history.favourites = response);
     this.votingService.getVoting()
-      .subscribe((response: any) => {
-        this.history.action = response
-        console.log(response)
-      });
+      .subscribe((response: any) => this.history.action = response);
     this.imageService.getImage()
       .subscribe((response: any) => this.cat = response);
   }
@@ -110,9 +100,9 @@ export class VotingComponent implements OnInit{
 }
 
 export class History {
-  constructor(public action: any, public favourites: any) {}
+  constructor(public action: any = [], public favourites: any = []) {}
 
   get list() {
-    return [...this.action, ...this.favourites];
+    return [...this.action, ...this.favourites].sort((a, b) => a.created_at > b.created_at ? -1 : 1);
   }
 }
