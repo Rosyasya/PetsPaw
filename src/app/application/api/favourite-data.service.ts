@@ -23,4 +23,8 @@ export class FavouriteService {
   postFavourite(data: any):Observable<any> {
     return this.http.post('https://api.thecatapi.com/v1/favourites', data, this.options);
   }
+
+  deleteFavourite(id: any):Observable<any> {
+    return this.http.delete('https://api.thecatapi.com/v1/favourites/' + id, this.options)
+  }
 }

@@ -51,50 +51,58 @@ export class VotingComponent implements OnInit{
   }
 
   likeHandle() {
-    // this.votingService.postVoting({
-    //   "image_id": this.cat[0].id,
-    //   "value": 1,
-    // })
-    //   .subscribe(() => {
-    //     this.favouriteService.getFavourite()
-    //       .subscribe((response: any) => this.history.setFavourites(response))
-    //     this.votingService.getVoting()
-    //       .subscribe((response: any) => this.history.setAction(response))
-    //     this.imageService.getImage()
-    //       .subscribe((response: any) => this.cat = response)
-    //   });
+    this.votingService.postVoting({
+      "image_id": this.cat[0].id,
+      "value": 1,
+    })
+      .subscribe(() => {
+        this.votingService.getVoting()
+          .subscribe((response: any) => this.history.action = response)
+        this.imageService.getImage()
+          .subscribe((response: any) => this.cat = response)
+      });
   }
 
   favouriteHandle() {
-    // this.favouriteService.postFavourite({
-    //   "image_id": this.cat[0].id,
-    // })
-    //   .subscribe(() => {
-    //     this.votingService.getVoting()
-    //       .subscribe((response: any) => this.history.setAction(response))
-    //     this.imageService.getImage()
-    //       .subscribe((response: any) => this.cat = response)
-    //   });
+    this.favouriteService.postFavourite({
+      "image_id": this.cat[0].id,
+    })
+      .subscribe(() => {
+        this.favouriteService.getFavourite()
+          .subscribe((response: any) => this.history.favourites = response);
+        this.imageService.getImage()
+          .subscribe((response: any) => this.cat = response)
+      });
   }
 
   dislikeHandle() {
-    // this.votingService.postVoting({
-    //   "image_id": this.cat[0].id,
-    //   "value": -1,
-    // })
-    //   .subscribe(() => {
-    //     this.votingService.getVoting()
-    //       .subscribe((response: any) => this.history.setAction(response))
-    //     this.imageService.getImage()
-    //       .subscribe((response: any) => this.cat = response)
-    //   });
+    this.votingService.postVoting({
+      "image_id": this.cat[0].id,
+      "value": -1,
+    })
+      .subscribe(() => {
+        this.votingService.getVoting()
+          .subscribe((response: any) => this.history.action = response)
+        this.imageService.getImage()
+          .subscribe((response: any) => this.cat = response)
+      });
+  }
+
+  sortedHistory() {
+    return this.history.list.sort((a, b) => a.created_at > b.created_at ? -1 : 1)
   }
 
   ngOnInit(): void {
     this.favouriteService.getFavourite()
-      .subscribe((response: any) => this.history.favourites = response);
+      .subscribe((response: any) => {
+        this.history.favourites = response
+        console.log(response)
+      });
     this.votingService.getVoting()
-      .subscribe((response: any) => this.history.action = response);
+      .subscribe((response: any) => {
+        this.history.action = response
+        console.log(response)
+      });
     this.imageService.getImage()
       .subscribe((response: any) => this.cat = response);
   }
