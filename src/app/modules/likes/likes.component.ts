@@ -10,18 +10,21 @@ export class LikesComponent implements OnInit{
   constructor(private votingService: VotingService) {}
 
   likes: Array<object> = [];
+  cache: Array<object> = [];
 
   removeLike(id: any) {
     this.votingService.deleteVoting(id)
-      .subscribe((response: any) => {
-        console.log(response)
+      .subscribe(() => {
         this.votingService.getVoting()
           .subscribe((response: any) => {
             response.forEach((data: any) => {
               if (data.value === 1) {
-                this.likes.push(data)
+                this.cache.push(data)
               }
             })
+            console.log(this.cache)
+            this.likes = this.cache;
+            this.cache = [];
           })
       })
   }
