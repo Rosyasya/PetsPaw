@@ -12,11 +12,14 @@ import { BreedsInfoComponent } from './modules/breeds/breeds-info/breeds-info.co
 import { ButtonComponent } from './components/ui-kit/button/button.component';
 import { SelectComponent } from './components/ui-kit/select/select.component';
 import { GridComponent } from './components/ui-kit/grid/grid.component';
-import { GridItemComponent } from './components/ui-kit/grid/grid-item/grid-item.component';
 import { InputComponent } from './components/ui-kit/input/input.component';
 import { SliderComponent } from './components/ui-kit/slider/slider.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { BreedSearchComponent } from './modules/breed-search/breed-search.component';
+import { FavouritesComponent } from './modules/favourites/favourites.component';
+import { LikesComponent } from './modules/likes/likes.component';
+import { DislikesComponent } from './modules/dislikes/dislikes.component';
 
 const routes: Routes = [
   { path: '', children: [
@@ -27,6 +30,10 @@ const routes: Routes = [
           { path: ':id', component: BreedsInfoComponent},
         ]},
       { path: 'gallery', component: GalleryComponent},
+      { path: 'search', component: BreedSearchComponent},
+      { path: 'favourites', component: FavouritesComponent},
+      { path: 'likes', component: LikesComponent},
+      { path: 'dislikes', component: DislikesComponent},
     ]},
 ];
 
@@ -42,9 +49,12 @@ const routes: Routes = [
     ButtonComponent,
     SelectComponent,
     GridComponent,
-    GridItemComponent,
     InputComponent,
-    SliderComponent
+    SliderComponent,
+    BreedSearchComponent,
+    FavouritesComponent,
+    LikesComponent,
+    DislikesComponent
   ],
   imports: [
     BrowserModule,

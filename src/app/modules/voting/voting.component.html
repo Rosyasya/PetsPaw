@@ -5,11 +5,10 @@
                [buttonClass]="'secondary'"
                [buttonPadding]="'10px'"
                [buttonBorderRadius]="'10px'"
-               (valueChange)="searchImg($event)"
                ></app-input>
-    <app-button [icon]="'icon-like'" [iconColor]="'#FF868E'"></app-button>
-    <app-button [icon]="'icon-favourite'" [iconColor]="'#FF868E'"></app-button>
-    <app-button [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [link]="'/likes'" [icon]="'icon-like'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [link]="'/favourites'" [icon]="'icon-favourite'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [link]="'/dislikes'" [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
   </div>
 
   <div class="voting__container">
@@ -21,9 +20,9 @@
     <img class="voting__container-img" [src]="cat[0].url" alt="cat">
 
     <div class="voting__container-buttons">
-      <app-button (callback)="likeHandle()" [class]="'primary'" [icon]="'icon-like'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#97EAB9'" [width]="'80px'" [height]="'80px'" [borderRadius]="'20px 0 0px 20px'"></app-button>
-      <app-button (callback)="favouriteHandle()" [class]="'primary'" [icon]="'icon-favourite'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FF868E'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px'"></app-button>
-      <app-button (callback)="dislikeHandle()" [class]="'primary'" [icon]="'icon-dislike'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FFD280'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px 20px 20px 0px'"></app-button>
+      <app-button [isDisabled]="isDisabled" (callback)="likeHandle()" [class]="'primary'" [icon]="'icon-like'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#97EAB9'" [width]="'80px'" [height]="'80px'" [borderRadius]="'20px 0 0px 20px'"></app-button>
+      <app-button [isDisabled]="isDisabled" (callback)="favouriteHandle()" [class]="'primary'" [icon]="'icon-favourite'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FF868E'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px'"></app-button>
+      <app-button [isDisabled]="isDisabled" (callback)="dislikeHandle()" [class]="'primary'" [icon]="'icon-dislike'" [iconSize]="'30px'" [iconColor]="'white'" [background]="'#FFD280'" [width]="'80px'" [height]="'80px'" [borderRadius]="'0px 20px 20px 0px'"></app-button>
     </div>
 
     <div class="voting__container-history">

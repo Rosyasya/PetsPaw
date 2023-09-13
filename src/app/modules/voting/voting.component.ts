@@ -10,6 +10,8 @@ import {FavouriteService} from "../../application/api/favourite-data.service";
 })
 export class VotingComponent implements OnInit{
   constructor(private votingService: VotingService, private imageService: ImageService, private favouriteService: FavouriteService) {}
+
+  isDisabled: boolean = false;
   cat: any;
 
   history = new History([], []);
@@ -51,19 +53,24 @@ export class VotingComponent implements OnInit{
   }
 
   likeHandle() {
+    this.isDisabled = true;
     this.votingService.postVoting({
       "image_id": this.cat[0].id,
       "value": 1,
     })
       .subscribe(() => {
-        this.votingService.getVoting()
+        this.votingService.getLimitedVoting()
           .subscribe((response: any) => this.history.action = response)
         this.imageService.getImage()
-          .subscribe((response: any) => this.cat = response)
+          .subscribe((response: any) => {
+            this.cat = response;
+            this.isDisabled = false;
+          })
       });
   }
 
   favouriteHandle() {
+    this.isDisabled = true;
     this.favouriteService.postFavourite({
       "image_id": this.cat[0].id,
     })
@@ -71,27 +78,34 @@ export class VotingComponent implements OnInit{
         this.favouriteService.getFavourite()
           .subscribe((response: any) => this.history.favourites = response);
         this.imageService.getImage()
-          .subscribe((response: any) => this.cat = response)
+          .subscribe((response: any) => {
+            this.cat = response;
+            this.isDisabled = false;
+          })
       });
   }
 
   dislikeHandle() {
+    this.isDisabled = true;
     this.votingService.postVoting({
       "image_id": this.cat[0].id,
       "value": -1,
     })
       .subscribe(() => {
-        this.votingService.getVoting()
+        this.votingService.getLimitedVoting()
           .subscribe((response: any) => this.history.action = response)
         this.imageService.getImage()
-          .subscribe((response: any) => this.cat = response)
+          .subscribe((response: any) => {
+            this.cat = response;
+            this.isDisabled = false;
+          })
       });
   }
 
   ngOnInit(): void {
     this.favouriteService.getFavourite()
       .subscribe((response: any) => this.history.favourites = response);
-    this.votingService.getVoting()
+    this.votingService.getLimitedVoting()
       .subscribe((response: any) => this.history.action = response);
     this.imageService.getImage()
       .subscribe((response: any) => this.cat = response);

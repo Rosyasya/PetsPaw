@@ -1,7 +1,6 @@
 .voting {
   padding-right: 30px;
   height: 97vh;
-  overflow-y: hidden;
 
   &__header {
     display: flex;
@@ -10,7 +9,7 @@
   }
 
   &__container {
-    height: 88vh;
+    height: calc(100vh - 131px);
     margin-top: 10px;
     padding: 20px;
     background: white;
@@ -61,10 +60,12 @@
     }
 
     &-history {
+      max-height: calc(100vh - 661px);
       margin-top: 10px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      overflow-y: scroll;
 
       &__item {
         padding: 15px;

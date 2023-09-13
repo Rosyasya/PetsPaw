@@ -1,0 +1,26 @@
+<div class="likes">
+  <div class="likes__header">
+    <app-input [icon]="'icon-search'" [iconSize]="'20px'" [iconColor]="'#FF868E'"
+               [placeholder]="'Search for breeds by name'"
+               [buttonClass]="'secondary'"
+               [buttonPadding]="'10px'"
+               [buttonBorderRadius]="'10px'"
+    ></app-input>
+    <app-button [link]="'/likes'" [icon]="'icon-like'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [link]="'/favourites'" [icon]="'icon-favourite'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [link]="'/dislikes'" [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
+  </div>
+
+  <div class="likes__container">
+    <div class="likes__container-header">
+      <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
+      <h1>LIKES</h1>
+    </div>
+
+    <div class="likes__container-not_found" *ngIf="!likes.length">
+      <p>No item found</p>
+    </div>
+
+    <app-grid [data]="likes" (callback)="removeLike($event)"></app-grid>
+  </div>
+</div>

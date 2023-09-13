@@ -30,7 +30,7 @@
   }
 
   &__container {
-    height: 90vh;
+    height: calc(100vh - 131px);
     margin-top: 10px;
     padding: 20px;
     background: white;

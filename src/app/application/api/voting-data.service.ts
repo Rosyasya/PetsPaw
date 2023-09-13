@@ -16,11 +16,19 @@ export class VotingService{
     headers: this.headers,
   }
 
-  getVoting():Observable<any> {
+  getLimitedVoting():Observable<any> {
     return this.http.get('https://api.thecatapi.com/v1/votes?limit=10&order=DESC', this.options);
+  }
+
+  getVoting():Observable<any> {
+    return this.http.get('https://api.thecatapi.com/v1/votes', this.options);
   }
 
   postVoting(data: any):Observable<any> {
     return this.http.post('https://api.thecatapi.com/v1/votes', data, this.options);
+  }
+
+  deleteVoting(id: number):Observable<any> {
+    return this.http.delete('https://api.thecatapi.com/v1/votes/' + id, this.options)
   }
 }

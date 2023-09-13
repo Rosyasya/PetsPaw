@@ -1,1 +1,10 @@
-<p>grid works!</p>
+<div class="grid">
+  <div class="grid__item" *ngFor="let info of data; let i = index">
+    <img [src]="info.image.url" [alt]="info.image_id">
+    <div class="grid__item-container" (click)="onClick(info.id)">
+      <div class="grid__item-container__image">
+        <i class="icon-like"></i>
+      </div>
+    </div>
+  </div>
+</div>
