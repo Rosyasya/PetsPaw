@@ -76,7 +76,9 @@ export class VotingComponent implements OnInit{
     })
       .subscribe(() => {
         this.favouriteService.getFavourite()
-          .subscribe((response: any) => this.history.favourites = response);
+          .subscribe((response: any) => {
+            this.history.favourites = response;
+          });
         this.imageService.getImage()
           .subscribe((response: any) => {
             this.cat = response;

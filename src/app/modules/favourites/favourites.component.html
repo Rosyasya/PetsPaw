@@ -1,1 +1,26 @@
-<p>favourites works!</p>
+<div class="favourite">
+  <div class="favourite__header">
+    <app-input [icon]="'icon-search'" [iconSize]="'20px'" [iconColor]="'#FF868E'"
+               [placeholder]="'Search for breeds by name'"
+               [buttonClass]="'secondary'"
+               [buttonPadding]="'10px'"
+               [buttonBorderRadius]="'10px'"
+    ></app-input>
+    <app-button [link]="'/favourite'" [icon]="'icon-like'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [link]="'/favourites'" [icon]="'icon-favourite'" [iconColor]="'#FF868E'"></app-button>
+    <app-button [link]="'/disfavourite'" [icon]="'icon-dislike'" [iconColor]="'#FF868E'"></app-button>
+  </div>
+
+  <div class="favourite__container">
+    <div class="favourite__container-header">
+      <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
+      <h1>FAVOURITE</h1>
+    </div>
+
+    <div class="favourite__container-not_found" *ngIf="!favourite.length">
+      <p>No item found</p>
+    </div>
+
+    <app-grid [data]="favourite" (callback)="removeLike($event)"></app-grid>
+  </div>
+</div>
