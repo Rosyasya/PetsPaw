@@ -15,19 +15,12 @@
     <div class="breeds__container-header">
       <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
       <h1>BREEDS</h1>
-      <app-select [width]="'226px'" [placeholder]="'All breeds'" [iconColor]="'#8C8C8C'"></app-select>
-      <app-select [width]="'101px'" [placeholder]="'Limit: 10'" [iconColor]="'#8C8C8C'"></app-select>
-      <app-button [icon]="'icon-filter_up'" [iconSize]="'21px'" [iconColor]="'#8C8C8C'" [background]="'#F8F8F7'"></app-button>
-      <app-button [icon]="'icon-filter_down'" [iconSize]="'21px'" [iconColor]="'#8C8C8C'" [background]="'#F8F8F7'"></app-button>
+      <app-select [options]="breedOption" (valueChange)="onBreedChange($event)" [width]="'226px'" [placeholder]="'All breeds'" [iconColor]="'#8C8C8C'"></app-select>
+      <app-select [options]="limitOption" (valueChange)="onLimitChange($event)" [width]="'101px'" [placeholder]="'Limit: 10'" [iconColor]="'#8C8C8C'"></app-select>
+      <app-button (callback)="filterUpHandle()" [icon]="'icon-filter_up'" [iconSize]="'21px'" [iconColor]="'#8C8C8C'" [background]="'#F8F8F7'"></app-button>
+      <app-button (callback)="filterDownHandle()" [icon]="'icon-filter_down'" [iconSize]="'21px'" [iconColor]="'#8C8C8C'" [background]="'#F8F8F7'"></app-button>
     </div>
 
-    <div class="breeds__container-grid">
-      <div class="breeds__container-grid__item" *ngFor="let breed of breeds">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="breeds__container-grid__item-breeds">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-    </div>
+    <app-grid (callback)="onBreedChoose($event)" [data]="breeds"></app-grid>
   </div>
 </div>

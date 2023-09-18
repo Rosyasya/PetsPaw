@@ -18,7 +18,7 @@ export class CardComponent{
   switchTab() {
     this.route.navigate(['/', this.title.toLowerCase()]);
 
-    
+
   }
 
 }

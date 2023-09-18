@@ -17,7 +17,7 @@
         <app-button [link]="'../'" [icon]="'icon-back'" [iconSize]="'20px'" [iconColor]="'#FF868E'" [class]="'secondary'" [borderRadius]="'10px'" [padding]="'10px'"></app-button>
         <h1>GALLERY</h1>
       </div>
-      <app-button [class]="'secondary'" [icon]="'icon-upload'" [iconSize]="'16px'" [iconColor]="'#FF868E'" [title]="'UPLOAD'" [padding]="'12px 30px'" [borderRadius]="'10px'" [isReversed]="true"></app-button>
+      <app-button (click)="isModalOpen = true" [class]="'secondary'" [icon]="'icon-upload'" [iconSize]="'16px'" [iconColor]="'#FF868E'" [title]="'UPLOAD'" [padding]="'12px 30px'" [borderRadius]="'10px'" [isReversed]="true"></app-button>
     </div>
 
     <div class="gallery__container-settings">
@@ -34,37 +34,8 @@
       </div>
     </div>
 
-    <div class="gallery__container-grid">
-      <div class="gallery__container-grid__item first">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="gallery__container-grid__item-gallery">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-      <div class="gallery__container-grid__item second">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="gallery__container-grid__item-gallery">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-      <div class="gallery__container-grid__item third">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="gallery__container-grid__item-gallery">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-      <div class="gallery__container-grid__item fourth">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="gallery__container-grid__item-gallery">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-      <div class="gallery__container-grid__item fifth">
-        <img src="assets/images/cat.png" alt="cat">
-        <div class="gallery__container-grid__item-gallery">
-          <h2>{{breed}}</h2>
-        </div>
-      </div>
-    </div>
+    <app-grid></app-grid>
+
+    <app-image-upload [isOpen]="isModalOpen"></app-image-upload>
   </div>
 </div>

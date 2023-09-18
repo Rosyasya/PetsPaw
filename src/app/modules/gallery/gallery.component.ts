@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent {
-  breed: string = 'test1';
+export class GalleryComponent implements OnInit{
+
+  isModalOpen = false;
+
+  ngOnInit(): void {
+
+  }
 }

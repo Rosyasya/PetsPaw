@@ -6,7 +6,7 @@
                        [disabled]="isDisabled"
                        [required]="isRequired"
                        [value]="value"
-                       (input)="handleInput($event)"
+                       (keyup.enter)="handleInput($event)"
                        >
     <app-button [icon]="icon" [iconSize]="iconSize" [iconColor]="iconColor" [class]="buttonClass" [padding]="buttonPadding" [borderRadius]="buttonBorderRadius"></app-button>
   </div>

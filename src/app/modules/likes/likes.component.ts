@@ -6,7 +6,7 @@ import {VotingService} from "../../application/api/voting-data.service";
   templateUrl: './likes.component.html',
   styleUrls: ['./likes.component.scss']
 })
-export class LikesComponent implements OnInit{
+export class LikesComponent implements OnInit {
   constructor(private votingService: VotingService) {}
 
   likes: Array<object> = [];
@@ -14,7 +14,7 @@ export class LikesComponent implements OnInit{
 
   removeLike(id: any) {
     this.votingService.deleteVoting(id)
-      .subscribe(() => {
+      .subscribe((response: any) => {
         this.votingService.getVoting()
           .subscribe((response: any) => {
             response.forEach((data: any) => {

@@ -1,0 +1,15 @@
+<div class="upload" *ngIf="isOpen">
+  <i class="icon-cross" (click)="isOpen = false"></i>
+  <h1>Upload a .jpg or .png Cat Image</h1>
+  <h2>Any uploads must comply with the <span>upload guidelines</span> or face deletion.</h2>
+
+  <div class="upload__container">
+    <input class="upload__container-input" type="file" id="upload" (change)="inputChangeHandle($event)">
+    <label *ngIf="!url" for="upload"><span>Drag here</span> your file or <span>Click here</span> to upload</label>
+    <img src="assets/images/file.png" alt="file" *ngIf="!url">
+    <img class="upload__container-img" [src]="url" alt="file" *ngIf="url">
+  </div>
+
+  <h2 *ngIf="!url">No file selected</h2>
+</div>
+<div class="upload__wrapper" *ngIf="isOpen" (click)="isOpen = false"></div>

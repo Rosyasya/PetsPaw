@@ -1,0 +1,51 @@
+.dislikes {
+  padding-right: 30px;
+  overflow-y: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__container {
+    max-height: calc(100vh - 131px);
+    margin-top: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+
+      button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        background: #FBE0DC;
+        cursor: pointer;
+      }
+
+      h1 {
+        padding: 5px 30px;
+        font-size: 20px;
+        font-weight: 500;
+        background: #FF868E;
+        border-radius: 10px;
+        color: white;
+        letter-spacing: 2px;
+      }
+    }
+
+    &-not_found {
+      padding: 18px 20px;
+      color: #8C8C8C;
+      background: #F8F8F7;
+      border-radius: 10px;
+    }
+  }
+}

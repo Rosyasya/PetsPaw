@@ -12,7 +12,7 @@ import { BreedsInfoComponent } from './modules/breeds/breeds-info/breeds-info.co
 import { ButtonComponent } from './components/ui-kit/button/button.component';
 import { SelectComponent } from './components/ui-kit/select/select.component';
 import { GridComponent } from './components/ui-kit/grid/grid.component';
-import { InputComponent } from './components/ui-kit/input/input.component';
+import { SearchBarComponent } from './components/ui-kit/input/search-bar.component';
 import { SliderComponent } from './components/ui-kit/slider/slider.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
@@ -20,6 +20,8 @@ import { BreedSearchComponent } from './modules/breed-search/breed-search.compon
 import { FavouritesComponent } from './modules/favourites/favourites.component';
 import { LikesComponent } from './modules/likes/likes.component';
 import { DislikesComponent } from './modules/dislikes/dislikes.component';
+import { GridItemComponent } from './components/ui-kit/grid/grid-item/grid-item.component';
+import { ImageUploadComponent } from './modules/image-upload/image-upload.component';
 
 const routes: Routes = [
   { path: '', children: [
@@ -30,7 +32,9 @@ const routes: Routes = [
           { path: ':id', component: BreedsInfoComponent},
         ]},
       { path: 'gallery', component: GalleryComponent},
-      { path: 'search', component: BreedSearchComponent},
+      { path: 'search', children: [
+          { path: ':id', component: BreedSearchComponent}
+        ]},
       { path: 'favourites', component: FavouritesComponent},
       { path: 'likes', component: LikesComponent},
       { path: 'dislikes', component: DislikesComponent},
@@ -49,12 +53,14 @@ const routes: Routes = [
     ButtonComponent,
     SelectComponent,
     GridComponent,
-    InputComponent,
+    SearchBarComponent,
     SliderComponent,
     BreedSearchComponent,
     FavouritesComponent,
     LikesComponent,
-    DislikesComponent
+    DislikesComponent,
+    GridItemComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,
