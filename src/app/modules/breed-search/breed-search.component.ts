@@ -21,9 +21,9 @@ export class BreedSearchComponent implements OnInit{
 
         this.breedService.getBreed()
           .subscribe((response: any) => {
+            this.breed = [];
             response.forEach((data: any) => {
               if (data.name.toLowerCase() === this.name.toLowerCase()) {
-                this.breed = [];
                 this.breed.push(data);
               }
             })
